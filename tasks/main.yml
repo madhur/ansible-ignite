@@ -34,3 +34,18 @@
     group=ignite
     mode=0644
     
+- name: install ignite.service
+  template: >-
+    src=usr/lib/systemd/system/ignite.service.j2
+    dest=/usr/lib/systemd/system/ignite.service
+    owner=root
+    group=root
+    mode=0644
+  register: ignite_service_installed
+
+- name: systemctl daemon-reload
+  command: systemctl daemon-reload
+  when: ignite_service_installed|changed
+  
+- name: start ignite
+  service: name=ignite enabled=yes state=started
