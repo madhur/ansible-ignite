@@ -1,51 +1,63 @@
 ---
 # tasks file for ignite
 - name: add ignite group
+  become: yes
+  become_user: root
   group: name=ignite state=present
 
 - name: add ignite user
+  become: yes
+  become_user: root
   user: >
     name=ignite
     group=ignite
     home={{ignite_home}}
 
 - name: download ignite
+  become: yes
+  become_user: ignite
   get_url: >-
     url={{ignite_url}}
     dest={{ignite_home}}/{{ignite_zip}}
-    owner=ignite
-    group=ignite
-    mode=644
+    mode=0644
 
 - name: unarchive
+  become: yes
+  become_user: ignite
   unarchive: >-
     copy=no
     src={{ignite_home}}/{{ignite_zip}}
     dest={{ignite_home}}
-    owner=ignite
-    group=ignite
     creates={{ignite_home}}/{{ignite_name}}
 
 - name: install config
+  become: yes
+  become_user: ignite
+  with_items:
+    - config/default-config.xml
   template: >-
-    src=config/default-config.xml.j2
-    dest={{ignite_home}}/{{ignite_name}}/config/default-config.xml
-    owner=ignite
-    group=ignite
+    src={{item}}.j2
+    dest={{ignite_home}}/{{ignite_name}}/{{item}}
     mode=0644
     
 - name: install ignite.service
+  become: yes
+  become_user: root
+  with_items:
+    - usr/lib/systemd/system/ignite.service
   template: >-
-    src=usr/lib/systemd/system/ignite.service.j2
-    dest=/usr/lib/systemd/system/ignite.service
-    owner=root
-    group=root
+    src={{item}}.j2
+    dest=/{{item}}
     mode=0644
   register: ignite_service_installed
 
 - name: systemctl daemon-reload
+  become: yes
+  become_user: root
   command: systemctl daemon-reload
   when: ignite_service_installed|changed
   
 - name: start ignite
+  become: yes
+  become_user: root
   service: name=ignite enabled=yes state=started
