@@ -1,6 +1,6 @@
 ---
 # defaults file for ignite
-ignite_ver : '1.5.0.final'
+ignite_ver : '1.6.0'
 ignite_mirror : 'http://www.us.apache.org/dist/ignite'
 ignite_home : '/usr/local/ignite'
 ignite_network_interface : 'eth0'
