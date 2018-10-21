@@ -15,7 +15,7 @@
   become: yes
   become_user: root
   command: systemctl daemon-reload
-  when: ignite_activate and ignite_service_installed|changed
+  when: ignite_activate and ignite_service_installed is changed
   
 - name: start ignite
   become: yes
