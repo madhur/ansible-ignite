@@ -1,0 +1,27 @@
+---
+- name: install ignite.service
+  become: yes
+  become_user: root
+  with_items:
+    - f: ignite.service
+      d: /etc/systemd/system
+  template:
+    src: '{{item.f}}.j2'
+    dest: '{{item.d}}/{{item.f}}'
+    mode: '{{item.m|default("0644")}}'
+  register: ignite_service_installed
+
+- name: systemctl daemon-reload
+  become: yes
+  become_user: root
+  command: systemctl daemon-reload
+  when: ignite_activate and ignite_service_installed|changed
+  
+- name: start ignite
+  become: yes
+  become_user: root
+  when: ignite_activate
+  service:
+    name: ignite
+    enabled: yes
+    state: started
