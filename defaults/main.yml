@@ -1,10 +1,10 @@
 ---
 # defaults file for ignite
-ignite_ver: '2.6.0'
+ignite_ver: '2.7.0'
 ignite_mirror: http://www.us.apache.org/dist/ignite
 ignite_checksums:
-  # https://www.apache.org/dist/ignite/2.6.0/apache-ignite-fabric-2.6.0-bin.zip.sha512
-  '2.6.0': sha512:7dbd1442073557c5125e500e6a267243af8d72f73352fb67bea4b7ab448b8faa803aae03984d781fd96aa89736943b7540b73aa091055d466605ecbe940c32e3
+  # https://www.apache.org/dist/ignite/2.7.0/apache-ignite-2.7.0-bin.zip.sha512
+  '2.7.0': sha512:afb83a77f538cdd9cc9fbadfc41af589ceff75f9b8c96f270997b5724819525fa9af1ff9e7b7166155d6f3632954b39939573971ecef1caf090b8ce604e76523
 ignite_home: /usr/local/ignite
 
 # for statically defining the IPs of the peers

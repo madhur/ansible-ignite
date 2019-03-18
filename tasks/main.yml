@@ -13,14 +13,14 @@
   user:
     name: ignite
     group: ignite
-    home: '{{ignite_home}}'
+    home: '{{ ignite_home }}'
 
 - name: download ignite
   become: yes
   become_user: ignite
   get_url:
-    url: '{{ignite_url}}'
-    dest: '{{ignite_home}}/{{ignite_zip}}'
+    url: '{{ ignite_url }}'
+    dest: '{{ ignite_home }}/{{ ignite_zip }}'
     mode: 0644
 
 - name: unarchive
@@ -28,19 +28,19 @@
   become_user: ignite
   unarchive:
     remote_src: yes
-    src: '{{ignite_home}}/{{ignite_zip}}'
-    dest: '{{ignite_home}}'
-    creates: '{{ignite_home}}/{{ignite_name}}'
+    src: '{{ ignite_home }}/{{ ignite_zip }}'
+    dest: '{{ ignite_home }}'
+    creates: '{{ ignite_home }}/{{ ignite_name }}'
 
 - name: install config
   become: yes
   become_user: ignite
   with_items:
     - f: default-config.xml
-      d: '{{ignite_home}}/{{ignite_name}}/config'
+      d: '{{ ignite_home }}/{{ ignite_name }}/config'
   template:
-    src: '{{item.f}}.j2'
-    dest: '{{item.d}}/{{item.f}}'
-    mode: '{{item.m|default("0644")}}'
+    src: '{{ item.f }}.j2'
+    dest: '{{ item.d }}/{{ item.f }}'
+    mode: '{{ item.m|default("0644") }}'
 
-- include_tasks: '{{ignite_supervisor|default("systemd")}}.yml'
+- include_tasks: '{{ ignite_supervisor|default("systemd") }}.yml'
