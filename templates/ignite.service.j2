@@ -3,6 +3,8 @@ Description=Apache Ignite Server
 After=network.target
 
 [Service]
+EnvironmentFile=-/usr/local/java/java-oracle.env
+EnvironmentFile=-/usr/local/java/oracle-jre.env
 Type=simple
 User=ignite
 WorkingDirectory={{ignite_home}}/{{ignite_name}}
