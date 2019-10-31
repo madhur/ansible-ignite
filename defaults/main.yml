@@ -1,10 +1,7 @@
 ---
 # defaults file for ignite
-ignite_ver: '2.7.0'
-ignite_mirror: http://www.us.apache.org/dist/ignite
-ignite_checksums:
-  # https://www.apache.org/dist/ignite/2.7.0/apache-ignite-2.7.0-bin.zip.sha512
-  '2.7.0': sha512:afb83a77f538cdd9cc9fbadfc41af589ceff75f9b8c96f270997b5724819525fa9af1ff9e7b7166155d6f3632954b39939573971ecef1caf090b8ce604e76523
+ignite_ver: '2.7.6'
+ignite_mirror: http://archive.apache.org/dist/ignite
 ignite_home: /usr/local/ignite
 
 # for statically defining the IPs of the peers
@@ -20,3 +17,11 @@ ignite_network:
 #  network_interface : eth0
 
 ignite_activate: True
+
+ignite_checksums:
+  # https://www.apache.org/dist/ignite/2.7.0/apache-ignite-2.7.0-bin.zip.sha512
+  '2.7.0': sha512:afb83a77f538cdd9cc9fbadfc41af589ceff75f9b8c96f270997b5724819525fa9af1ff9e7b7166155d6f3632954b39939573971ecef1caf090b8ce604e76523
+  # https://archive.apache.org/dist/ignite/2.7.5/apache-ignite-2.7.5-bin.zip.sha512
+  '2.7.5': sha512:10158d640785c40d13d0451ccaa08a2fdf406b0fc21d2679f1bf5f22998bd4df0f26a8c3f3fd666a14c0cdfe4068d2164f12eda29278c338e05096aa73428c1d
+  # https://archive.apache.org/dist/ignite/2.7.6/apache-ignite-2.7.6-bin.zip.sha512
+  '2.7.6': sha512:1cb8480ffe7571aaf99bcafe15cef3b03c8678e0862b7bb4f5b60b4571e358f2e267b9c85481bf345ba66fb7d5d6b71d4e48f9c3855b0244812d6a4405276a8f
