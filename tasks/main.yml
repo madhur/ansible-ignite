@@ -1,13 +1,13 @@
 ---
 # tasks file for ignite
-- name: add ignite group
+- name: adding ignite group
   become: yes
   become_user: root
   group:
     name: ignite
     state: present
 
-- name: add ignite user
+- name: adding ignite user
   become: yes
   become_user: root
   user:
@@ -15,29 +15,29 @@
     group: ignite
     home: '{{ ignite_home }}'
 
-- name: download ignite
+- name: downloading {{ ignite_url }}
   become: yes
   become_user: ignite
   get_url:
     url: '{{ ignite_url }}'
-    dest: '{{ ignite_home }}/{{ ignite_zip }}'
+    dest: '{{ ignite_lzip }}'
     mode: 0644
 
-- name: unarchive
+- name: unarchiving {{ ignite_lzip }}
   become: yes
   become_user: ignite
   unarchive:
     remote_src: yes
-    src: '{{ ignite_home }}/{{ ignite_zip }}'
+    src: '{{ ignite_lzip }}'
     dest: '{{ ignite_home }}'
-    creates: '{{ ignite_home }}/{{ ignite_name }}'
+    creates: '{{ ignite_install_dir }}'
 
 - name: install config
   become: yes
   become_user: ignite
   with_items:
     - f: default-config.xml
-      d: '{{ ignite_home }}/{{ ignite_name }}/config'
+      d: '{{ ignite_install_dir }}/config'
   template:
     src: '{{ item.f }}.j2'
     dest: '{{ item.d }}/{{ item.f }}'

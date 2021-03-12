@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
+set -e
+
 DIR=~/Downloads
 PLATFORM=linux-x86_64
 MIRROR=https://archive.apache.org/dist/ignite
@@ -11,7 +13,5 @@ dl_ver() {
     printf "  '%s': sha512:%s\n" $ver $(curl -sSL $url | awk '{print $1}')
 }
 
-#dl_ver ${1:-2.7.0}
-dl_ver 2.7.5
-dl_ver 2.7.6
+dl_ver ${1:-2.9.1}
 
