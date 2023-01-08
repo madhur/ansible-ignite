@@ -1,39 +1,42 @@
 ---
 # tasks file for ignite
+- include_role:
+    name: andrewrothstein.unarchive-deps
+- include_role:
+    name: andrewrothstein.temurin
+  vars:
+    openjdk_app: jre
 - name: adding ignite group
-  become: yes
+  become: true
   become_user: root
   group:
     name: ignite
     state: present
-
 - name: adding ignite user
-  become: yes
+  become: true
   become_user: root
   user:
     name: ignite
     group: ignite
     home: '{{ ignite_home }}'
-
 - name: downloading {{ ignite_url }}
-  become: yes
+  become: true
   become_user: ignite
   get_url:
     url: '{{ ignite_url }}'
     dest: '{{ ignite_lzip }}'
     mode: 0644
-
 - name: unarchiving {{ ignite_lzip }}
-  become: yes
+  become: true
   become_user: ignite
   unarchive:
-    remote_src: yes
+    remote_src: true
     src: '{{ ignite_lzip }}'
     dest: '{{ ignite_home }}'
     creates: '{{ ignite_install_dir }}'
 
 - name: install config
-  become: yes
+  become: true
   become_user: ignite
   with_items:
     - f: default-config.xml
@@ -41,6 +44,6 @@
   template:
     src: '{{ item.f }}.j2'
     dest: '{{ item.d }}/{{ item.f }}'
-    mode: '{{ item.m|default("0644") }}'
+    mode: '{{ item.m | default("0644") }}'
 
-- include_tasks: '{{ ignite_supervisor|default("systemd") }}.yml'
+- include_tasks: '{{ ignite_supervisor | default("systemd") }}.yml'

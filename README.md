@@ -1,6 +1,6 @@
 andrewrothstein.ignite
 ===========================
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-ignite.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-ignite)
+![Build Status](https://github.com/andrewrothstein/ansible-ignite/actions/workflows/build.yml/badge.svg)
 
 Installs an [Apache Ignite](https://ignite.apache.org) cluster
 

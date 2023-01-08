@@ -1,6 +1,6 @@
 ---
 # defaults file for ignite
-ignite_ver: 2.9.1
+ignite_ver: 2.14.0
 ignite_mirror: http://archive.apache.org/dist/ignite
 ignite_home: /usr/local/ignite
 
@@ -16,7 +16,7 @@ ignite_network:
 #  group_name: ignite
 #  network_interface : eth0
 
-ignite_activate: True
+ignite_activate: true
 
 ignite_checksums:
   # https://www.apache.org/dist/ignite/2.7.0/apache-ignite-2.7.0-bin.zip.sha512
@@ -27,3 +27,5 @@ ignite_checksums:
   '2.7.6': sha512:1cb8480ffe7571aaf99bcafe15cef3b03c8678e0862b7bb4f5b60b4571e358f2e267b9c85481bf345ba66fb7d5d6b71d4e48f9c3855b0244812d6a4405276a8f
   # https://archive.apache.org/dist/ignite/2.9.1/apache-ignite-2.9.1-bin.zip.sha512
   '2.9.1': sha512:7c36f0116cad567133455fa78784710e4bffb30c9a47438ee5ccbd0da0fd12e4c1914f1a39c12f7b19720dd4946c53ad4d4a5af06cca4b1e06c0f09b96def041
+  # https://archive.apache.org/dist/ignite/2.14.0/apache-ignite-2.14.0-bin.zip.sha512
+  '2.14.0': sha512:4eb9251f03aff3dc588465dd5692b0ffdc899a67ca86fa8656a31e4c6920add656e1c27cc50cdf6663062f128449c808a47341d262d94f9bf4d72339066d257a
