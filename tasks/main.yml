@@ -3,6 +3,8 @@
 - include_role:
     name: andrewrothstein.unarchive-deps
 - include_role:
+    name: andrewrothstein.sudoers
+- include_role:
     name: andrewrothstein.temurin
   vars:
     openjdk_app: jre
