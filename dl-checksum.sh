@@ -2,7 +2,6 @@
 set -e
 
 DIR=~/Downloads
-PLATFORM=linux-x86_64
 MIRROR=https://archive.apache.org/dist/ignite
 
 dl_ver() {
