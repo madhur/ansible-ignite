@@ -1,13 +1,21 @@
 ---
 # tasks file for ignite
+# - include_role:
+#     name: ansible-unarchivedeps
+# - include_role:
+#     name: ansible-sudoers
 - include_role:
-    name: andrewrothstein.unarchive-deps
-- include_role:
-    name: andrewrothstein.sudoers
-- include_role:
-    name: andrewrothstein.temurin
+    name: ansible-temurin
   vars:
     openjdk_app: jre
+
+- name: Install unzip
+  become: true
+  ansible.builtin.package:
+    name: 
+      - unzip
+      - net-tools
+    state: present
 - name: adding ignite group
   become: true
   become_user: root

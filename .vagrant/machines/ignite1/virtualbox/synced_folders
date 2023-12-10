@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/run/media/madhur/centos/home/madhur/github/personal/ansible-ignite","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
