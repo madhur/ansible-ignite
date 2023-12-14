@@ -1,4 +1,8 @@
+[all:vars]
+ansible_connection=ssh
+ansible_user=vagrant
+
 [ignite]
 ignite1 ansible_host=192.168.56.10   
-#ignite2 ansible_host=192.168.56.11   
-#ignite3 ansible_host=192.168.56.12   
+ignite2 ansible_host=192.168.56.11   
+ignite3 ansible_host=192.168.56.12   

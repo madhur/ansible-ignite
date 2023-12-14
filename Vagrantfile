@@ -6,18 +6,18 @@ hosts = [
       :mem => "2048",
       :cpu => "2",
     },
-    # {
-    #   :name => "ignite2",
-    #   :eth1 => "192.168.56.11",
-    #   :mem => "2048",
-    #   :cpu => "2",
-    # },
-    # {
-    #   :name => "ignite3",
-    #   :eth1 => "192.168.56.12",
-    #   :mem => "2048",
-    #   :cpu => "2",
-    # },
+    {
+      :name => "ignite2",
+      :eth1 => "192.168.56.11",
+      :mem => "2048",
+      :cpu => "2",
+    },
+    {
+      :name => "ignite3",
+      :eth1 => "192.168.56.12",
+      :mem => "2048",
+      :cpu => "2",
+    },
   ]
   
 
@@ -44,10 +44,10 @@ hosts = [
         config.vm.hostname = opts[:name]
         config.vm.synced_folder ".", "/vagrant", type: "rsync"
   
-        config.vm.provision "ansible" do |ansible|
-          ansible.inventory_path = "./hosts"
-          ansible.playbook = "./ignite.yml" 
-        end
+        # config.vm.provision "ansible" do |ansible|
+        #   ansible.inventory_path = "./hosts"
+        #   ansible.playbook = "./ignite.yml" 
+        # end
   
         #config.vm.network "forwarded_port", guest: 6379, host: opts[:hostport]
   

@@ -36,7 +36,7 @@
                   <value>{{peer}}</value>
                   {% endfor %}{% else %}
                   {% for host in groups[ignite_network.group_name] %}
-                  <value>{{hostvars[host]['ansible_' + ignite_network.iface]['ipv4']['address']}}</value>
+                  <value>{{hostvars[host]['ansible_' + ignite_network.network_interface]['ipv4']['address']}}</value>
 		              {% endfor %}{% endif %}
 		            </list>
 	            </property>

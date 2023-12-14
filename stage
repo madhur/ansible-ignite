@@ -1,0 +1,9 @@
+[all:vars]
+ansible_connection=ssh
+ansible_user=madhur.ahuja
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+
+[ignite]
+ignite1 ansible_host=10.224.87.239   
+ignite2 ansible_host=10.224.95.108   
+ignite3 ansible_host=10.224.125.109   

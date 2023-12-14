@@ -5,16 +5,16 @@ ignite_mirror: http://archive.apache.org/dist/ignite
 ignite_home: /usr/local/ignite
 
 # for statically defining the IPs of the peers
-ignite_network:
-  type: static
-  peers:
-    - 127.0.0.1
+# ignite_network:
+#   type: static
+#   peers:
+#     - 127.0.0.1
 
 # example for using Ansible groups and groupvars
-#ignite_network:
-#  type: group
-#  group_name: ignite
-#  network_interface : eth0
+ignite_network:
+ type: group
+ group_name: ignite
+ network_interface : eth0
 
 ignite_activate: true
 
